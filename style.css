@@ -141,7 +141,8 @@ h1 {
   width: min(78vw, 760px);
   min-height: 68vh;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  /* CORRECCIÓN: auto-distribución para dar siempre espacio a la imagen */
+  grid-template-rows: auto auto 1fr min-content;
   gap: 1rem;
   padding: clamp(1.25rem, 3vw, 2.4rem);
   border: 1px solid var(--linea);
@@ -165,7 +166,7 @@ h1 {
 }
 
 .visual {
-  min-height: 260px;
+  min-height: 240px; /* Reducido ligeramente para dar aire al texto */
   align-self: end;
   margin-top: 1rem;
   border: 1px solid var(--linea);
@@ -266,7 +267,6 @@ h1 {
   border-radius: 8px;
 }
 
-
 /* ==========================================================================
    Fondo de imagen para la portada (Actualizado con tu archivo)
    ========================================================================== */
@@ -277,7 +277,6 @@ h1 {
   padding: 5rem max(1.25rem, 8vw) !important;
   color: #fff !important;
   
-  /* Forzamos el uso de 'portada.jpg' con capa oscura de contraste */
   background: 
     linear-gradient(rgba(24, 34, 36, 0.85), rgba(24, 34, 36, 0.45)),
     url("portada.jpg") !important;
