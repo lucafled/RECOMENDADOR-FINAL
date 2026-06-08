@@ -9,19 +9,19 @@
   <body>
     <header class="portada">
       <p class="etiqueta">Ciencia de Datos & Algoritmos</p>
-      <h1>Behind the scenes: </p> Sistema de Recomendación Musical</h1>
+      <h1>Behind the scenes: Sistema de Recomendación Musical</h1>
       <p class="bajada">
-        De una encuenta a un recomendador capaz de predecir y sugerir tus próximas canciones favoritas.
+        De una encuesta a un recomendador capaz de predecir y sugerir tus próximas canciones favoritas.
       </p>
       <p class="meta">
-        Elaboracion del Proyecto &bull; Desarrollado en Python con Pandas
+        Elaboración del Proyecto &bull; Desarrollado en Python con Pandas
       </p>
     </header>
 
     <main>
       <section class="intro">
-        <p cstyle="text-align: center;">
-          ¿No sabes que escuchar y quieres decrubiri nueva musica? </p> Desliza hacia abajo para descubrir la lógica detrás de nuestro recomendador, podria ser la respuesta lo que buscas.
+        <p style="text-align: center;">
+          ¿No sabes qué escuchar y quieres descubrir nueva música? Desliza hacia abajo para descubrir la lógica detrás de nuestro recomendador, podría ser la respuesta lo que buscas.
         </p>
         <div class="indicador-scroll" aria-hidden="true">
           <span class="flecha"></span>
@@ -40,10 +40,10 @@
               <p class="etiqueta">PASO 1: LA MATRIZ DE DATOS LIMPIA</p>
               <h2>Apertura de archivo csv y Limpieza de Calificaciones</h2>
               <p>
-                El sistema lee el archivo <code>Musica_Encuesta_Completa.csv</code>. Para despues eliminar caracteres ocultos de formato (como <code>\u200b</code>) y transformarlos en 0 con ayuda de <code>pd.to_numeric()</code>, aislando una matriz limpia de usuarios vs. canciones.
+                El sistema lee el archivo <code>Musica_Encuesta_Completa.csv</code>. Para después eliminar caracteres ocultos de formato (como <code>\u200b</code>) y transformarlos en 0 con ayuda de <code>pd.to_numeric()</code>, aislando una matriz limpia de usuarios vs. canciones.
               </p>
               <div class="visual contenedor-foto">
-                <img src="codigo_limpieza.png" alt="Código de limpieza en Pandas" class="foto-panel">
+                <img src="limpieza.jpg" alt="Código de limpieza en Pandas" class="foto-panel">
               </div>
             </article>
 
@@ -51,32 +51,32 @@
               <p class="etiqueta">PASO 2: BÚSQUEDA FLEXIBLE</p>
               <h2>Buscador de Coincidencias</h2>
               <p>
-                Despues implementamos un loop que convierte la entrada de texto a minúsculas y busca coincidencias en los títulos. Si escribes "Gaga" o "Nirvana", el algoritmo detecta automáticamente la columna que debe de tomar (ej. <i>Smells Like Teen Spirit</i>).
+                Después implementamos un loop que convierte la entrada de texto a minúsculas y busca coincidencias en los títulos. Si escribes "Gaga" o "Nirvana", el algoritmo detecta automáticamente la columna que debe de tomar (ej. <i>Smells Like Teen Spirit</i>).
               </p>
               <div class="visual contenedor-foto">
-                <img src="busqueda_coincidencias.png" alt="Explicación del buscador de texto" class="foto-panel">
+                <img src="buscadorflexible.jpg" alt="Explicación del buscador de texto" class="foto-panel">
               </div>
             </article>
 
             <article class="panel panel-mapa">
-              <p class="etiqueta">PASO 3: CORAZON DEL RECOMENDADOR</p>
+              <p class="etiqueta">PASO 3: CORAZÓN DEL RECOMENDADOR</p>
               <h2>Segmentación de Usuarios Afines</h2>
               <p>
-                En lugar de promediar por promediar, el sistema busca a los usuarios que calificaron la canción elegida con un 4 o 5 y los relaciona . Al hacer esto, descubrimos qué otros gustos comparten estas personas logrando un mejor resultado para la recomendacion.
+                En lugar de promediar por promediar, el sistema busca a los usuarios que calificaron la canción elegida con un 4 o 5 y los relaciona. Al hacer esto, descubrimos qué otros gustos comparten estas personas logrando un mejor resultado para la recomendación.
               </p>
               <div class="visual contenedor-foto">
-                <img src="filtro_usuarios.png" alt="Diagrama de filtrado colaborativo" class="foto-panel">
+                <img src="corazon.jpg" alt="Diagrama de filtrado colaborativo" class="foto-panel">
               </div>
             </article>
 
             <article class="panel panel-detalle">
-              <p class="etiqueta">PASO 4: EVACION DE 0 RECOMENDACIONES</p>
+              <p class="etiqueta">PASO 4: EVASIÓN DE 0 RECOMENDACIONES</p>
               <h2>Manejo de Excepciones (Fallback)</h2>
               <p>
-                ¿Qué pasa si una canción tiene muy pocos votos altos? El programa usa la funcion de (<i>Fallback</i>): si el grupo segmentado está vacío, utiliza el promedio general de toda la base de datos y da otra recomendacion la cual puede no ser tan acertada, pero a partir de ahi podemos recomendar mas.
+                ¿Qué pasa si una canción tiene muy pocos votos altos? El programa usa la función de (<i>Fallback</i>): si el grupo segmentado está vacío, utiliza el promedio general de toda la base de datos y da otra recomendación la cual puede no ser tan acertada, pero a partir de ahí podemos recomendar más.
               </p>
               <div class="visual contenedor-foto">
-                <img src="manejo_errores.png" alt="Mecanismo de seguridad de promedios" class="foto-panel">
+                <img src="fallback.jpg" alt="Mecanismo de seguridad de promedios" class="foto-panel">
               </div>
             </article>
             
@@ -84,10 +84,10 @@
               <p class="etiqueta">PASO 5: CÁLCULOS</p>
               <h2>Promedios, Exclusión y Top N</h2>
               <p>
-                Calculamos la media de calificaciones del grupo y aplicamos <code>.drop()</code> para eliminar la canción de origen (no queremos que se recomiende la que ya te gusto). Finalmente, ordenamos de mayor a menor para extraer el Top 3.
+                Calculamos la media de calificaciones del grupo y aplicamos <code>.drop()</code> para eliminar la canción de origen (no queremos que se recomiende la que ya te gustó). Finalmente, ordenamos de mayor a menor para extraer el Top 3.
               </p>
               <div class="visual contenedor-foto">
-                <img src="calculo_top.png" alt="Cálculo matemático de promedios" class="foto-panel">
+                <img src="calculos.jpg" alt="Cálculo matemático de promedios" class="foto-panel">
               </div>
             </article>
 
@@ -95,10 +95,10 @@
               <p class="etiqueta">PASO 6: PRINTING DE RESULTADOS</p>
               <h2>UI</h2>
               <p> 
-                Finalmente el usuario ve en pantalla un menú limpio donde estan las recomendaciones calculadas en tiempo real acompañadas de su calificación promedio estimada, brindando una predicción basada puramente en el comportamiento colectivo.
+                Finalmente el usuario ve en pantalla un menú limpio donde están las recomendaciones calculadas en tiempo real acompañadas de su calificación promedio estimada, brindando una predicción basada puramente en el comportamiento colectivo.
               </p>
               <div class="visual contenedor-foto">
-                <img src="consola_resultados.png" alt="Resultado final en consola" class="foto-panel">
+                <img src="printing.jpg" alt="Resultado final en consola" class="foto-panel">
               </div>
             </article>
 
@@ -108,9 +108,9 @@
 
       <section class="nota-final">
         <p class="etiqueta">Conclusión</p>
-        <h2>El poder del criterio colectivo y como nos afecta</h2>
+        <h2>El poder del criterio colectivo y cómo nos afecta</h2>
         <p>
-          Este recomendador demuestra que no necesitas analizar las frecuencias de audio ni los metadatos de una canción para saber si es buena. Entender los patrones de comportamiento de las personas y los puntos de encuentro entre los usuarios de la encuesta, los datos revelan por sí solos las conexiones musicales ocultas. Estos resultados tambien demuestran que si existe una alta probabilidad de que los sistemas de recomendacion puedan ser manipulados para favorecer a ciertos generos o artistas.
+          Este recomendador demuestra que no necesitas analizar las frecuencias de audio ni los metadatos de una canción para saber si es buena. Entender los patrones de comportamiento de las personas y los puntos de encuentro entre los usuarios de la encuesta, los datos revelan por sí solos las conexiones musicales ocultas. Estos resultados también demuestran que sí existe una alta probabilidad de que los sistemas de recomendación puedan ser manipulados para favorecer a ciertos géneros o artistas.
         </p>
       </section>
     </main>

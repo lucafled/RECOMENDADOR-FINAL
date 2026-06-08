@@ -268,7 +268,7 @@ h1 {
 
 
 /* ==========================================================================
-   Fondo de imagen para la portada (Corregido con máxima prioridad)
+   Fondo de imagen para la portada (Actualizado con tu archivo)
    ========================================================================== */
 .portada {
   min-height: 88vh !important;
@@ -277,10 +277,10 @@ h1 {
   padding: 5rem max(1.25rem, 8vw) !important;
   color: #fff !important;
   
-  /* Forzamos que use tu imagen 'fondo.png' con la capa oscura encima */
+  /* Forzamos el uso de 'portada.jpg' con capa oscura de contraste */
   background: 
     linear-gradient(rgba(24, 34, 36, 0.85), rgba(24, 34, 36, 0.45)),
-    url("fondo.png") !important;
+    url("portada.jpg") !important;
     
   background-size: cover !important;
   background-position: center !important;
