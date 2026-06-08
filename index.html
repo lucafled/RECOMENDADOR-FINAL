@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exposición: Recomendador Musical Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="portada">
+      <p class="etiqueta">Ciencia de Datos & Algoritmos</p>
+      <h1>Detrás del Algoritmo: Sistema de Recomendación Musical</h1>
+      <p class="bajada">
+        Descubre cómo transformamos una encuesta de calificaciones en un motor capaz de predecir y sugerir tus próximas canciones favoritas mediante filtrado colaborativo.
+      </p>
+      <p class="meta">
+        Exposición del Proyecto &bull; Desarrollado en Python con Pandas
+      </p>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="lead">
+          ¿Cómo sabe una plataforma qué música te va a gustar? Desliza hacia abajo para descubrir la lógica matemática y el código detrás de nuestro recomendador.
+        </p>
+        <div class="indicador-scroll" aria-hidden="true">
+          <span class="flecha"></span>
+        </div>
+      </section>
+
+      <section class="recorrido" id="recorrido" aria-label="Explicación del Algoritmo">
+        <div class="visor">
+          <div class="barra">
+            <span id="progreso"></span>
+          </div>
+
+          <div class="pista" id="pista">
+            
+            <article class="panel panel-inicio">
+              <p class="etiqueta">PASO 1: LA MATRIZ DE DATOS</p>
+              <h2>Ingesta y Limpieza de Calificaciones</h2>
+              <p>
+                El sistema lee el archivo <code>Musica_Encuesta_Completa.csv</code>. El primer reto es la limpieza: eliminamos caracteres ocultos de formato (como <code>\u200b</code>) y transformamos las respuestas vacías o erróneas en 0 mediante <code>pd.to_numeric()</code>, aislando una matriz limpia de usuarios vs. canciones.
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="codigo_limpieza.png" alt="Código de limpieza en Pandas" class="foto-panel">
+              </div>
+            </article>
+
+            <article class="panel panel-dato">
+              <p class="etiqueta">PASO 2: BÚSQUEDA FLEXIBLE</p>
+              <h2>Buscador de Coincidencias Parciales</h2>
+              <p>
+                Para facilitar la experiencia de usuario, implementamos un bucle que convierte la entrada de texto a minúsculas y busca coincidencias en los títulos. Si escribes "Gaga" o "Nirvana", el algoritmo detecta automáticamente la columna exacta a procesar (ej. <i>Smells Like Teen Spirit</i>).
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="busqueda_coincidencias.png" alt="Explicación del buscador de texto" class="foto-panel">
+              </div>
+            </article>
+
+            <article class="panel panel-mapa">
+              <p class="etiqueta">PASO 3: EL NÚCLEO ALGORÍTMICO</p>
+              <h2>Segmentación de Usuarios Afines</h2>
+              <p>
+                En lugar de promediar a ciegas, el sistema busca a los usuarios que calificaron la canción elegida con un <b>4 o 5</b>. Al aislar a este grupo, descubrimos qué otros gustos comparten las personas que demuestran una afinidad real por tu canción de origen.
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="filtro_usuarios.png" alt="Diagrama de filtrado colaborativo" class="foto-panel">
+              </div>
+            </article>
+
+            <article class="panel panel-detalle">
+              <p class="etiqueta">PASO 4: MECANISMO DE CONTROL</p>
+              <h2>Manejo de Excepciones (Fallback)</h2>
+              <p>
+                ¿Qué pasa si una canción tiene muy pocos votos altos? El algoritmo incluye una salvaguarda (<i>Fallback</i>): si el grupo segmentado está vacío, utiliza el promedio general de toda la base de datos y lanza una alerta visual para evitar que el sistema falle.
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="manejo_errores.png" alt="Mecanismo de seguridad de promedios" class="foto-panel">
+              </div>
+            </article>
+            
+            <article class="panel panel-mapa">
+              <p class="etiqueta">PASO 5: CÁLCULO ESTADÍSTICO</p>
+              <h2>Promedios, Exclusión y Top N</h2>
+              <p>
+                Calculamos la media de calificaciones del grupo selecto y aplicamos una regla crítica: <code>.drop()</code> para eliminar la canción de origen (¡nadie quiere que le recomienden lo que ya está escuchando!). Finalmente, ordenamos de mayor a menor para extraer el <b>Top 3</b>.
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="calculo_top.png" alt="Cálculo matemático de promedios" class="foto-panel">
+              </div>
+            </article>
+
+            <article class="panel panel-cierre">
+              <p class="etiqueta">PASO 6: SALIDA DE RESULTADOS</p>
+              <h2>La Interfaz en Consola</h2>
+              <p> 
+                El resultado final despliega en pantalla un menú limpio donde expone las recomendaciones calculadas en tiempo real acompañadas de su calificación promedio estimada, garantizando una predicción basada puramente en el comportamiento colectivo.
+              </p>
+              <div class="visual contenedor-foto">
+                <img src="consola_resultados.png" alt="Resultado final en consola" class="foto-panel">
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="nota-final">
+        <p class="etiqueta">Conclusión Técnica</p>
+        <h2>Filtrado Colaborativo: El poder del criterio colectivo</h2>
+        <p>
+          Este recomendador demuestra que no necesitas analizar las frecuencias de audio ni los metadatos de una canción para saber si es buena. Entendiendo los patrones de comportamiento y los puntos de encuentro entre los usuarios de la encuesta, los datos revelan por sí solos las conexiones musicales ocultas.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
